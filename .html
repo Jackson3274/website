@@ -1,0 +1,50 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="video-container">
+        <img id="fake-cam" src="" style="display:none">
+        <img id="one-punch-man" src="https://play-lh.googleusercontent.com/ApasDTdghwHxtU5xN44d7Azr4jScDPo2In-mVHzmrI1vwC7aBPOsmP9H9Da694johg" style="display:none">
+        <button id="start-btn" onclick="startCamera()">Start Camera</button>
+        <button id="stop-btn" onclick="stopCamera()" disabled>Stop Camera</button>
+        <p id="camera-status">Camera is off</p>
+      </div>
+      
+      <script>
+        const startBtn = document.getElementById('start-btn');
+        const stopBtn = document.getElementById('stop-btn');
+        const originalImage = document.getElementById('fake-cam');
+        const onePunchManImage = document.getElementById('one-punch-man');
+        const cameraStatus = document.getElementById('camera-status');
+        
+        startBtn.addEventListener('click', startCamera);
+        stopBtn.addEventListener('click', stopCamera);
+      
+        function startCamera() {
+          // Show One Punch Man image and hide original image
+          onePunchManImage.style.display = 'block';
+          originalImage.style.display = 'none';
+          cameraStatus.textContent = 'Camera is on';
+          
+          startBtn.disabled = true;
+          stopBtn.disabled = false;
+        }
+      
+        function stopCamera() {
+          // Hide One Punch Man image and show original image
+          onePunchManImage.style.display = 'none';
+          originalImage.style.display = 'block';
+          cameraStatus.textContent = 'Camera is off';
+          
+          startBtn.disabled = false;
+          stopBtn.disabled = true;
+        }
+      </script>
+</body>
+</html>
+
+  
